@@ -10,7 +10,7 @@ const MainHeader = () => {
         marginTop: wp(15),
         padding: wp(5)
       }}
-      className="flex-1 flex-row justify-between"
+      className="flex-row justify-between"
     >
       {/* Menu */}
       <View>

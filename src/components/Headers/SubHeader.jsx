@@ -1,32 +1,37 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
-import { Feather } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
 
-const SubHeader = () => {
+const SubHeader = ({ name, backgroundColor }) => {
   return (
     <View
       className="flex-1 flex-row"
       style={{
         marginLeft: wp(5),
-        top: wp(1),
+        // top: wp(1),
         gap: wp(2)
       }}
     >
       {/* Sports */}
       <TouchableOpacity
-        className="flex-row items-center justify-center bg-orange-600 rounded-3xl space-x-2"
-        style={{ width: wp(29), height: wp(10), padding: wp(1) }}
+        className="flex-row items-center justify-center rounded-2xl space-x-2"
+        style={{
+          width: "auto",
+          height: wp(10),
+          padding: wp(1),
+          backgroundColor: backgroundColor
+        }}
       >
-        <MaterialIcons name="filter-list" size={20} color="white" />
-        <Text style={{ fontSize: wp(4) }} className="text-white">
-          Sports
+        {/* <MaterialIcons name="filter-list" size={20} color="white" /> */}
+        <Text
+          style={{ fontSize: wp(4), padding: wp(1) }}
+          className="text-white"
+        >
+          {name}
         </Text>
       </TouchableOpacity>
 
-      {/* music */}
+      {/* music
       <TouchableOpacity
         className="flex-row items-center justify-center bg-orange-400 rounded-3xl space-x-2"
         style={{ width: wp(29), height: wp(10), padding: wp(1) }}
@@ -35,9 +40,9 @@ const SubHeader = () => {
         <Text style={{ fontSize: wp(4) }} className="text-white">
           Music
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      {/* Food */}
+      {/* Food
       <TouchableOpacity
         className="flex-row items-center justify-center bg-green-400 rounded-3xl space-x-2"
         style={{ width: wp(29), height: wp(10), padding: wp(1) }}
@@ -46,7 +51,7 @@ const SubHeader = () => {
         <Text style={{ fontSize: wp(4) }} className="text-white">
           Food
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

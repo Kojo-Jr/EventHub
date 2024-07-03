@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
+import { FlatList, View } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { FlashList } from "@shopify/flash-list";
 import InivteAd from "../../../components/Cards/InivteAd";
@@ -9,6 +9,7 @@ import MainHeader from "../../../components/Headers/MainHeader";
 import SubHeader from "../../../components/Headers/SubHeader";
 import SearchAndFilter from "../../../components/TextInputs/SearchAndFilter";
 import { featuredEvents } from "../../../mockData/featuredEvents.data";
+import { eventCategories } from "../../../mockData/eventsCategories.data";
 
 export default function MainScreen() {
   return (
@@ -18,9 +19,12 @@ export default function MainScreen() {
       {/* Current Location, Menu and Notification */}
       <View
         style={{
+          marginBottom: wp(10),
           height: wp(60),
           borderBottomLeftRadius: wp(10),
           borderBottomRightRadius: wp(10)
+          // borderColor: "red",
+          // borderWidth: 2
         }}
         className="bg-blue-700"
       >
@@ -28,23 +32,47 @@ export default function MainScreen() {
 
         {/* Search and Filter */}
         <SearchAndFilter />
+      </View>
 
-        {/* Sports, Music, Food */}
-        <SubHeader />
+      {/* Sports, Music, Food */}
+      <View
+        style={{
+          // borderColor: "red",
+          // borderWidth: 2,
+          bottom: wp(18)
+        }}
+      >
+        <FlatList
+          data={eventCategories}
+          renderItem={({ item }) => {
+            return (
+              <SubHeader
+                name={item.name}
+                backgroundColor={item.backgroundColor}
+              />
+            );
+          }}
+          keyExtractor={(item, id) => id}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        />
       </View>
 
       {/* Featured Upcoming Events */}
 
       <View
         style={{
-          marginTop: wp(10),
-          padding: wp(5)
+          // marginTop: wp(),
+          padding: wp(5),
+          bottom: wp(9)
+          // borderColor: "red",
+          // borderWidth: 2
         }}
       >
         <MiniHeader title="Upcoming Events" navigationText="See All" />
 
         {/* Upcoming Events */}
-        <View style={{ flexGrow: 1, flexDirection: "row" }}>
+        <View style={{ flexGrow: 1, flexDirection: "row", marginTop: wp(2) }}>
           <FlashList
             data={featuredEvents}
             renderItem={({ item }) => {

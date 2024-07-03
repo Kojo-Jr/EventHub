@@ -1,10 +1,9 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { StatusBar } from "expo-status-bar";
 
-const Verification = () => {
+const ResetPassword = () => {
   return (
     <View
       style={{
@@ -22,13 +21,13 @@ const Verification = () => {
         <View style={{ gap: wp(2) }}>
           <View>
             <Text style={{ fontSize: wp(6), fontWeight: "500" }}>
-              Verification
+              Reset Password
             </Text>
           </View>
 
           <View>
             <Text>
-              We've sent you the verification {"\n"}code on +1234567890
+              Please enter your email address to {"\n"}request a password reset
             </Text>
           </View>
         </View>
@@ -42,49 +41,13 @@ const Verification = () => {
           <View>
             <TextInput
               style={{
-                width: wp(13),
+                width: wp(80),
                 height: wp(13),
                 borderWidth: wp(0.2),
                 borderRadius: wp(2)
               }}
-              keyboardType="numeric"
-              placeholder=""
-            />
-          </View>
-          <View>
-            <TextInput
-              style={{
-                width: wp(13),
-                height: wp(13),
-                borderWidth: wp(0.2),
-                borderRadius: wp(2)
-              }}
-              keyboardType="numeric"
-              placeholder=""
-            />
-          </View>
-          <View>
-            <TextInput
-              style={{
-                width: wp(13),
-                height: wp(13),
-                borderWidth: wp(0.2),
-                borderRadius: wp(2)
-              }}
-              keyboardType="numeric"
-              placeholder=""
-            />
-          </View>
-          <View>
-            <TextInput
-              style={{
-                width: wp(13),
-                height: wp(13),
-                borderWidth: wp(0.2),
-                borderRadius: wp(2)
-              }}
-              keyboardType="numeric"
-              placeholder=""
+              keyboardType="email-address"
+              placeholder=" abc@gmail.com"
             />
           </View>
         </View>
@@ -103,7 +66,7 @@ const Verification = () => {
             }}
             className="bg-[#4F86F7] justify-center items-center rounded-2xl"
           >
-            <Text className="text-white text-lg p-2">Continue</Text>
+            <Text className="text-white text-lg p-2">Send</Text>
           </View>
         </TouchableOpacity>
 
@@ -116,4 +79,4 @@ const Verification = () => {
   );
 };
 
-export default Verification;
+export default ResetPassword;

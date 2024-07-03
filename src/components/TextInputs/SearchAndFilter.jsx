@@ -6,8 +6,8 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 const SearchAndFilter = () => {
   return (
     <View
-      style={{ padding: wp(5), bottom: wp(5) }}
-      className="flex-1 flex-row justify-between items-center"
+      style={{ padding: wp(5) }}
+      className="flex-row items-center justify-between"
     >
       <View>
         <Ionicons name="search-outline" size={24} color="white" />
