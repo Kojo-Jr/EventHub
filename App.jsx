@@ -8,6 +8,8 @@ import SignUp from "./src/screens/Auth/SignUp/SignUp";
 import Verification from "./src/screens/Auth/Verification/Verification";
 import ResetPassword from "./src/screens/Auth/ResetPassword/ResetPassword";
 import Map from "./src/screens/Map/Map";
+import AllEvents from "./src/screens/Event/AllEvents";
+import UpComingEvents from "./src/screens/Event/UpComingEvents";
 
 const Stack = createStackNavigator();
 
@@ -77,10 +79,25 @@ const MapStack = () => (
   </Stack.Navigator>
 );
 
+const EventStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Events"
+      component={AllEvents}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Upcoming Events"
+      component={UpComingEvents}
+      options={{ headerShown: false }}
+    />
+  </Stack.Navigator>
+);
+
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Reset Password">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={HomeStack}
@@ -103,6 +120,7 @@ const App = () => {
         />
         <Stack.Screen
           name="Verify"
+          Events
           component={VerificationStack}
           options={{ headerShown: false }}
         />
@@ -114,6 +132,11 @@ const App = () => {
         <Stack.Screen
           name="Location"
           component={MapStack}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="All Events"
+          component={EventStack}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { Feather, Ionicons } from "@expo/vector-icons";
+import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 const MainHeader = () => {
@@ -12,19 +12,28 @@ const MainHeader = () => {
       }}
       className="flex-row justify-between"
     >
-      {/* Menu */}
-      <View>
-        <Feather name="menu" size={24} color="white" />
-      </View>
-
-      {/* Location */}
-      <View>
-        <Text className="text-white">Current Location</Text>
+      <TouchableOpacity>
+        <Entypo name="menu" size={24} color="white" />
+      </TouchableOpacity>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View className="items-center">
+          <Text className="text-white">Current Location</Text>
+          <Text className="text-white">New York</Text>
+        </View>
+        {/* <View>
+              <Entypo name="triangle-down" size={24} color="white" />
+            </View> */}
       </View>
 
       {/* Notifs */}
-      <TouchableOpacity>
-        <Ionicons name="notifications-outline" size={24} color="white" />
+      <TouchableOpacity
+        style={{
+          backgroundColor: "#524ce0",
+          borderRadius: wp(2),
+          padding: wp(1)
+        }}
+      >
+        <MaterialIcons name="notifications-none" size={24} color="white" />
       </TouchableOpacity>
     </View>
   );

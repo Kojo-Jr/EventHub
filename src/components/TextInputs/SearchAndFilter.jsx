@@ -6,7 +6,7 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 const SearchAndFilter = () => {
   return (
     <View
-      style={{ padding: wp(5) }}
+      style={{ padding: wp(5), bottom: wp(4) }}
       className="flex-row items-center justify-between"
     >
       <View>
@@ -17,15 +17,19 @@ const SearchAndFilter = () => {
           style={{ fontSize: wp(5), fontWeight: "300" }}
           className="text-white"
           placeholder="Search..."
+          placeholderTextColor={"white"}
         />
       </View>
 
       {/* Filter */}
       <TouchableOpacity
-        className="flex-row items-center justify-center bg-blue-400 rounded-full space-x-2"
-        style={{ width: wp(24), height: wp(8), padding: wp(1) }}
+        className="flex-row items-center justify-center bg-[#5D56F3] rounded-3xl space-x-2"
+        style={{ width: wp(23), height: wp(9), padding: wp(1) }}
       >
-        <MaterialIcons name="filter-list" size={20} color="white" />
+        <View className="bg-[#cdcdcf3c] rounded-full p-0.5">
+          <MaterialIcons name="filter-list" size={20} color="white" />
+        </View>
+
         <Text style={{ fontSize: wp(4) }} className="text-white">
           Filter
         </Text>

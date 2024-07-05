@@ -10,15 +10,18 @@ const SubHeader = ({ name, backgroundColor }) => {
         marginLeft: wp(5),
         // top: wp(1),
         gap: wp(2)
+        // borderWidth: 2,
+        // borderColor: "red"
       }}
     >
       {/* Sports */}
       <TouchableOpacity
         className="flex-row items-center justify-center rounded-2xl space-x-2"
         style={{
-          width: "auto",
+          width: wp(20),
+
           height: wp(10),
-          padding: wp(1),
+          padding: wp(1.5),
           backgroundColor: backgroundColor
         }}
       >
@@ -30,28 +33,6 @@ const SubHeader = ({ name, backgroundColor }) => {
           {name}
         </Text>
       </TouchableOpacity>
-
-      {/* music
-      <TouchableOpacity
-        className="flex-row items-center justify-center bg-orange-400 rounded-3xl space-x-2"
-        style={{ width: wp(29), height: wp(10), padding: wp(1) }}
-      >
-        <Feather name="music" size={24} color="white" />
-        <Text style={{ fontSize: wp(4) }} className="text-white">
-          Music
-        </Text>
-      </TouchableOpacity> */}
-
-      {/* Food
-      <TouchableOpacity
-        className="flex-row items-center justify-center bg-green-400 rounded-3xl space-x-2"
-        style={{ width: wp(29), height: wp(10), padding: wp(1) }}
-      >
-        <Ionicons name="fast-food" size={24} color="white" />
-        <Text style={{ fontSize: wp(4) }} className="text-white">
-          Food
-        </Text>
-      </TouchableOpacity> */}
     </View>
   );
 };

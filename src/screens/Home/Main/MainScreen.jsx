@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { FlatList, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { FlashList } from "@shopify/flash-list";
 import InivteAd from "../../../components/Cards/InivteAd";
@@ -8,8 +8,8 @@ import MiniHeader from "../../../components/Headers/MiniHeader";
 import MainHeader from "../../../components/Headers/MainHeader";
 import SubHeader from "../../../components/Headers/SubHeader";
 import SearchAndFilter from "../../../components/TextInputs/SearchAndFilter";
-import { featuredEvents } from "../../../mockData/featuredEvents.data";
 import { eventCategories } from "../../../mockData/eventsCategories.data";
+import { featuredEvents } from "../../../mockData/allEvents.data";
 
 export default function MainScreen() {
   return (
@@ -17,17 +17,7 @@ export default function MainScreen() {
       <StatusBar style="auto" />
 
       {/* Current Location, Menu and Notification */}
-      <View
-        style={{
-          marginBottom: wp(10),
-          height: wp(60),
-          borderBottomLeftRadius: wp(10),
-          borderBottomRightRadius: wp(10)
-          // borderColor: "red",
-          // borderWidth: 2
-        }}
-        className="bg-blue-700"
-      >
+      <View style={Styles.headerContainer} className="bg-blue-700">
         <MainHeader />
 
         {/* Search and Filter */}
@@ -60,15 +50,7 @@ export default function MainScreen() {
 
       {/* Featured Upcoming Events */}
 
-      <View
-        style={{
-          // marginTop: wp(),
-          padding: wp(5),
-          bottom: wp(9)
-          // borderColor: "red",
-          // borderWidth: 2
-        }}
-      >
+      <View style={Styles.featuredHeader}>
         <MiniHeader title="Upcoming Events" navigationText="See All" />
 
         {/* Upcoming Events */}
@@ -98,3 +80,21 @@ export default function MainScreen() {
     </View>
   );
 }
+
+const Styles = StyleSheet.create({
+  headerContainer: {
+    marginBottom: wp(10),
+    height: wp(60),
+    borderBottomLeftRadius: wp(10),
+    borderBottomRightRadius: wp(10)
+    // borderColor: "red",
+    // borderWidth: 2
+  },
+  featuredHeader: {
+    // marginTop: wp(),
+    padding: wp(5),
+    bottom: wp(9)
+    // borderColor: "red",
+    // borderWidth: 2
+  }
+});
