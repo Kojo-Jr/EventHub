@@ -24,3 +24,13 @@ Location-Based Recommendations: Discover events happening near you with our loca
 Detailed Listings: Each nearby event listing provides comprehensive details to help you decide where to go.
 Advertisements and Promotions
 Invite Ads: Stay updated with special invitations and promotions directly within the app.
+
+
+# Technologies Used
+React Native: For building a cross-platform mobile application with a native look and feel.
+
+Expo: To streamline the development process and provide powerful tools for building and deploying the app.
+
+Shopify FlashList: For efficient and high-performance rendering of large lists of events.
+
+React Navigation: For smooth navigation and route management within the app.
