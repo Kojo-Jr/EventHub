@@ -27,7 +27,7 @@ const UpComingEvents = () => {
           <View className="flex flex-row items-center space-x-2">
             <Pressable
               onPress={() => {
-                navigation.navigate("Home");
+                navigation.navigate("HomeStack");
               }}
             >
               <AntDesign name="arrowleft" size={24} color="black" />
@@ -85,7 +85,7 @@ const UpComingEvents = () => {
           style={Styles.exploreEventsButton}
           className=" bg-[#5669FF] rounded-2xl"
           onPress={() => {
-            navigation.navigate("Events");
+            navigation.navigate("AllEvents");
           }}
         >
           <View className="flex-row space-x-10 items-center justify-center">

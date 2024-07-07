@@ -7,7 +7,7 @@ const SubHeader = ({ name, backgroundColor }) => {
     <View
       className="flex-1 flex-row"
       style={{
-        marginLeft: wp(5),
+        marginLeft: wp(3),
         // top: wp(1),
         gap: wp(2)
         // borderWidth: 2,
@@ -18,7 +18,7 @@ const SubHeader = ({ name, backgroundColor }) => {
       <TouchableOpacity
         className="flex-row items-center justify-center rounded-2xl space-x-2"
         style={{
-          width: wp(20),
+          width: wp(25),
 
           height: wp(10),
           padding: wp(1.5),

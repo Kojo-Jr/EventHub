@@ -6,7 +6,7 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 const SearchAndFilter = () => {
   return (
     <View
-      style={{ padding: wp(5), bottom: wp(4) }}
+      style={{ padding: wp(5), bottom: wp(5) }}
       className="flex-row items-center justify-between"
     >
       <View>

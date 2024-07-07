@@ -1,17 +1,18 @@
-import { View, Text, Image, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
-import { Entypo, EvilIcons, Feather, AntDesign } from "@expo/vector-icons";
+import { Entypo, Feather, AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { FlashList } from "@shopify/flash-list";
 import { events } from "../../mockData/allEvents.data";
+import EventsCard from "../../components/Cards/EventsCard";
 
 const AllEvents = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate("Home");
+    navigation.navigate("HomeStack");
   };
 
   return (
@@ -37,56 +38,24 @@ const AllEvents = () => {
             <Entypo name="dots-three-vertical" size={21} color="black" />
           </View>
         </View>
-
-        {/* Events Contents */}
-        <View className="flex-grow flex-row">
-          <FlashList
-            data={events}
-            renderItem={({ item }) => {
-              return (
-                <View style={Styles.eventsContainer}>
-                  <View className="items-center">
-                    <View
-                      style={Styles.eventsDetailsContainer}
-                      className="bg-white flex flex-row rounded-3xl "
-                    >
-                      <View>
-                        <Image
-                          style={Styles.image}
-                          className="rounded-xl justify-center"
-                          source={item.featuredImage}
-                        />
-                      </View>
-                      {/* Details */}
-                      <View
-                        style={Styles.textContainer}
-                        // className="text-justify"
-                      >
-                        <Text className="text-blue-500 text-base">
-                          {item.date}
-                        </Text>
-                        <Text
-                          style={Styles.textTitle}
-                          className="font-semibold text-base"
-                        >
-                          {item.name}
-                        </Text>
-                        <View className="flex flex-row mt-2">
-                          <EvilIcons name="location" size={24} color="black" />
-                          <Text className="text-[#747688]">
-                            {item.location}
-                          </Text>
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-              );
-            }}
-            estimatedItemSize={200}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
+      </View>
+      {/* Events Contents */}
+      <View className="flex-grow">
+        <FlashList
+          data={events}
+          renderItem={({ item }) => {
+            return (
+              <EventsCard
+                date={item.date}
+                featuredImage={item.featuredImage}
+                name={item.name}
+                location={item.location}
+              />
+            );
+          }}
+          estimatedItemSize={80}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </View>
   );

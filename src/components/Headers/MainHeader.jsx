@@ -7,7 +7,7 @@ const MainHeader = () => {
   return (
     <View
       style={{
-        marginTop: wp(15),
+        marginTop: wp(6),
         padding: wp(5)
       }}
       className="flex-row justify-between"

@@ -1,24 +1,18 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
-import { useNavigation } from "@react-navigation/native";
 
-const MiniHeader = ({ title, navigationText }) => {
-  const navigation = useNavigation();
-
+const MiniHeader = ({ title, navigationText, handleNavigation }) => {
   return (
     <View className="flex flex-row items-center justify-between">
-      <Text style={Styles.navigationTitle} className="font-medium">
+      <Text
+        style={Styles.navigationTitle}
+        className="font-medium tracking-wider"
+      >
         {title}
       </Text>
 
-      <Pressable
-        onPress={() => {
-          navigation.navigate("All Events", {
-            screen: "Upcoming Events"
-          });
-        }}
-      >
+      <Pressable onPress={handleNavigation}>
         <Text style={Styles.navigationText}>{navigationText}</Text>
       </Pressable>
     </View>

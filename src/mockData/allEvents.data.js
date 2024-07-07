@@ -71,5 +71,12 @@ export const events = [
     featuredImage: require("../../assets/mockImages/Events/music_festival.png"),
     name: "International Music Gala Festival",
     location: "53 Bush St • San Francisco, CA"
+  },
+  {
+    id: 6,
+    date: "Wed, Apr 28, 5:30pm",
+    featuredImage: require("../../assets/mockImages/Events/smooth_jazz.png"),
+    name: "A Virtual Evening of Smooth Jazz",
+    location: "53 Bush St • San Francisco, CA"
   }
 ];

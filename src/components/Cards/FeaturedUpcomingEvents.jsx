@@ -7,8 +7,8 @@ const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
   return (
     <TouchableOpacity
       style={{
-        width: wp(75),
-        height: wp(65),
+        width: wp(70),
+        height: wp(62),
         backgroundColor: "white",
         marginTop: wp(2),
         marginRight: wp(5)
@@ -20,7 +20,7 @@ const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
           <TouchableOpacity>
             <Image
               style={{
-                width: wp(70),
+                width: wp(65),
                 height: wp(30),
                 borderRadius: wp(2),
                 resizeMode: "cover"
@@ -32,14 +32,14 @@ const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
           <View
             style={{
               padding: wp(2),
-              gap: wp(48)
+              gap: wp(43)
             }}
             className="absolute flex-row"
           >
             <View>
               <Text
                 style={{ padding: wp(1) }}
-                className="text-red-400 font-medium bg-[#FAFAFA] rounded-xl"
+                className="text-red-400 font-semibold bg-[#FFFFFFB2] rounded-xl"
               >
                 10th{"\n"}June
               </Text>
@@ -48,7 +48,7 @@ const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
               style={{
                 height: wp(8)
               }}
-              className="bg-[#FAFAFA] rounded-xl"
+              className="bg-[#FFFFFFB2] rounded-xl"
             >
               <Feather
                 name="bookmark"
@@ -62,25 +62,27 @@ const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
           </View>
         </View>
 
-        {/* Event Name */}
-        <View style={{ marginTop: wp(5) }} className="items-center">
-          <Text
-            style={{
-              fontSize: wp(5)
-            }}
-            className="font-semibold"
-          >
-            {name}
-          </Text>
-        </View>
-        <View
-          style={{
-            marginTop: wp(13)
-          }}
-          className="flex flex-row justify-center"
-        >
-          <EvilIcons name="location" size={24} color="black" />
-          <Text>{location}</Text>
+        {/* Event Details */}
+        <View style={{ gap: wp(2), marginTop: wp(5), alignSelf: "center" }}>
+          <View>
+            <Text
+              style={{
+                fontSize: wp(5)
+              }}
+              className="font-semibold"
+            >
+              {name}
+            </Text>
+          </View>
+          <View>
+            <Image
+              source={require("../../../assets/mockImages/Events/attending.png")}
+            />
+          </View>
+          <View className="flex flex-row">
+            <EvilIcons name="location" size={24} color="black" />
+            <Text>{location}</Text>
+          </View>
         </View>
       </View>
     </TouchableOpacity>
