@@ -8,15 +8,18 @@ Main Header and Mini Header Components: Easily navigate through different sectio
 Search and Filter: Quickly find events that match your interests using our powerful search and filter functionality.
 
 Event Categories
+
 Dynamic Event Categories: Browse through a variety of event categories such as Music, Tech, Arts, Sports, and more.
 SubHeader Component: Each category is represented with a distinct subheader, making it easy to identify and select your preferred type of event.
 
 Featured Events
+
 Highlighted Events: Our Featured Events section showcases the most popular and upcoming events.
 Events Card: Get detailed information about each event, including the date, location, and a brief description.
 FlashList Integration: Enjoy a smooth and efficient scrolling experience with our integration of FlashList for displaying events.
 
 Nearby Events
+
 Location-Based Recommendations: Discover events happening near you with our location-based recommendations.
 Detailed Listings: Each nearby event listing provides comprehensive details to help you decide where to go.
 Advertisements and Promotions
