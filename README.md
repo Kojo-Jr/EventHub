@@ -3,6 +3,7 @@ EventHub is an innovative mobile application that informs you about the latest e
 
 # Features
 Seamless Navigation
+
 Main Header and Mini Header Components: Easily navigate through different sections of the app with our intuitive header components.
 Search and Filter: Quickly find events that match your interests using our powerful search and filter functionality.
 
