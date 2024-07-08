@@ -2,10 +2,22 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { Feather, EvilIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
+  const navigation = useNavigation();
+
   return (
     <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("ViewEventDetails", {
+          params: {
+            featuredImage,
+            name,
+            location
+          }
+        })
+      }
       style={{
         width: wp(70),
         height: wp(62),
