@@ -8,14 +8,16 @@ import {
   Feather
 } from "@expo/vector-icons";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { useNavigation } from "@react-navigation/native";
 
-const ProfileAbout = () => {
+const AboutProfile = () => {
+  const navigation = useNavigation();
   return (
     <View className="flex flex-1">
       <StatusBar style="auto" />
       <View style={{ marginTop: wp(10) }}>
         <View className="flex flex-row justify-between p-2">
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate("HomeStack")}>
             <AntDesign name="arrowleft" size={24} color="black" />
           </Pressable>
           <View>
@@ -109,4 +111,4 @@ const ProfileAbout = () => {
   );
 };
 
-export default ProfileAbout;
+export default AboutProfile;

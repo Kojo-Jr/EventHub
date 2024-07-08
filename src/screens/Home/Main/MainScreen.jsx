@@ -2,16 +2,16 @@ import { StatusBar } from "expo-status-bar";
 import { FlatList, StyleSheet, View } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { FlashList } from "@shopify/flash-list";
-import { MainHeader, MiniHeader, SubHeader } from "../../../components/Headers";
-import { SearchAndFilter } from "../../../components/TextInputs";
+import SearchAndFilter from "../../../components/TextInputs/SearchAndFilter";
 import { eventCategories } from "../../../mockData/eventsCategories.data";
 import { events, featuredEvents } from "../../../mockData/allEvents.data";
+import { useNavigation } from "@react-navigation/native";
+import { MainHeader, MiniHeader, SubHeader } from "../../../components/Headers";
 import {
   EventsCard,
-  InivteAd,
-  FeaturedUpcomingEvents
+  FeaturedUpcomingEvents,
+  InivteAd
 } from "../../../components/Cards";
-import { useNavigation } from "@react-navigation/native";
 
 export default function MainScreen() {
   const navigation = useNavigation();
@@ -33,108 +33,86 @@ export default function MainScreen() {
       <StatusBar style="auto" />
 
       {/* Current Location, Menu and Notification */}
-      <View style={Styles.headerContainer} className="bg-blue-700">
-        <MainHeader />
-
-        {/* Search and Filter */}
-        <SearchAndFilter />
-      </View>
-
-      {/* Event Categories */}
-      <View
-        style={{
-          // borderColor: "red",
-          // borderWidth: 2,
-          bottom: wp(15)
-        }}
-      >
-        <FlatList
-          data={eventCategories}
-          renderItem={({ item }) => {
-            return (
-              <SubHeader
-                name={item.name}
-                backgroundColor={item.backgroundColor}
-              />
-            );
-          }}
-          keyExtractor={(item, id) => id}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
-
-      {/* Featured Upcoming Events */}
 
       <FlashList
-        ListHeaderComponent={() => {
-          return (
-            <View>
-              <View style={Styles.upComingEventsContainer}>
-                <MiniHeader
-                  title="Upcoming Events"
-                  navigationText="See All"
-                  handleNavigation={navigateEvent}
-                />
+        ListHeaderComponent={() => (
+          <View>
+            <View style={Styles.headerContainer} className="bg-blue-700">
+              <MainHeader />
+              {/* Search and Filter */}
 
-                {/* Upcoming Events */}
-                <View
-                  style={{
-                    flexGrow: 1,
-                    flexDirection: "row",
-                    marginTop: wp(2)
-                  }}
-                >
-                  <FlashList
-                    data={featuredEvents}
-                    renderItem={({ item }) => {
-                      return (
-                        <FeaturedUpcomingEvents
-                          featuredImage={item.featuredImage}
-                          name={item.name}
-                          location={item.location}
-                        />
-                      );
-                    }}
-                    estimatedItemSize={200}
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
+              <SearchAndFilter />
+            </View>
+
+            {/* Event Categories */}
+            <View style={Styles.eventCategoriesContainer}>
+              <FlatList
+                data={eventCategories}
+                renderItem={({ item }) => (
+                  <SubHeader
+                    name={item.name}
+                    backgroundColor={item.backgroundColor}
                   />
-                </View>
-              </View>
-              {/* Advertisment */}
-              <View style={Styles.inviteContainer}>
-                <InivteAd />
-              </View>
+                )}
+                keyExtractor={(item, id) => id.toString()}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              />
+            </View>
 
-              <View style={Styles.nearbyContainer} className="flex-grow">
-                <MiniHeader
-                  title="Nearby You"
-                  navigationText="See All"
-                  handleNavigation={navigateNearbyEvent}
+            {/* Featured Upcoming Events */}
+
+            <View style={Styles.upComingEventsContainer}>
+              <MiniHeader
+                title="Upcoming Events"
+                navigationText="See All"
+                handleNavigation={navigateEvent}
+              />
+              {/* Upcoming Events */}
+              <View style={Styles.upcomingEventsList}>
+                <FlashList
+                  data={featuredEvents}
+                  renderItem={({ item }) => (
+                    <FeaturedUpcomingEvents
+                      featuredImage={item.featuredImage}
+                      name={item.name}
+                      location={item.location}
+                    />
+                  )}
+                  estimatedItemSize={200}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
                 />
-
-                <View className="flex-grow flex-col">
-                  <FlashList
-                    data={events}
-                    renderItem={({ item }) => {
-                      return (
-                        <EventsCard
-                          date={item.date}
-                          featuredImage={item.featuredImage}
-                          name={item.name}
-                          location={item.location}
-                        />
-                      );
-                    }}
-                    estimatedItemSize={200}
-                    showsVerticalScrollIndicator={false}
-                  />
-                </View>
               </View>
             </View>
-          );
-        }}
+            {/* Advertisment */}
+            <View style={Styles.inviteContainer}>
+              <InivteAd />
+            </View>
+            <View style={Styles.nearbyContainer}>
+              <MiniHeader
+                title="Nearby You"
+                navigationText="See All"
+                handleNavigation={navigateNearbyEvent}
+              />
+              <View style={Styles.nearbyEventsList}>
+                <FlashList
+                  data={events}
+                  renderItem={({ item }) => (
+                    <EventsCard
+                      date={item.date}
+                      featuredImage={item.featuredImage}
+                      name={item.name}
+                      location={item.location}
+                    />
+                  )}
+                  estimatedItemSize={200}
+                  showsVerticalScrollIndicator={false}
+                />
+              </View>
+            </View>
+          </View>
+        )}
         estimatedItemSize={200}
         showsVerticalScrollIndicator={false}
       />
@@ -148,15 +126,17 @@ const Styles = StyleSheet.create({
     height: wp(50),
     borderBottomLeftRadius: wp(10),
     borderBottomRightRadius: wp(10)
-    // borderColor: "red",
-    // borderWidth: 2
+  },
+  eventCategoriesContainer: {
+    bottom: wp(15)
   },
   upComingEventsContainer: {
-    marginTop: wp(-2),
+    marginTop: wp(-10),
     padding: wp(2)
-    // marginBottom: wp(2)
-    // borderColor: "red",
-    // borderWidth: 2
+  },
+  upcomingEventsList: {
+    flexDirection: "row",
+    marginTop: wp(2)
   },
   inviteContainer: {
     marginTop: wp(2)
@@ -164,5 +144,9 @@ const Styles = StyleSheet.create({
   nearbyContainer: {
     marginTop: wp(6),
     padding: wp(2)
+  },
+  nearbyEventsList: {
+    flexGrow: 1,
+    flexDirection: "column"
   }
 });

@@ -39,7 +39,7 @@ export const events = [
   },
   {
     id: 1,
-    date: "Wed, Apr 28, 5:30pm",
+    date: "Thurs, Apr 29, 8:30pm",
     featuredImage: require("../../assets/mockImages/Events/Mask Group.png"),
     name: "Jo Malone Music",
     location: "36 Guild Street London, Uk"

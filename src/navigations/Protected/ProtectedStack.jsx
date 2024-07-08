@@ -9,7 +9,7 @@ const ProtectedStack = createStackNavigator();
 
 const ProtectedStackNavigator = () => {
   return (
-    <ProtectedStack.Navigator initialRouteName="HomeStack">
+    <ProtectedStack.Navigator initialRouteName="ProfileStack">
       <ProtectedStack.Screen
         name="HomeStack"
         component={HomeStackNavigator}
