@@ -7,11 +7,7 @@ import { eventCategories } from "../../../mockData/eventsCategories.data";
 import { events, featuredEvents } from "../../../mockData/allEvents.data";
 import { useNavigation } from "@react-navigation/native";
 import { MainHeader, MiniHeader, SubHeader } from "../../../components/Headers";
-import {
-  EventsCard,
-  FeaturedUpcomingEvents,
-  InivteAd
-} from "../../../components/Cards";
+import { EventsCard, FeaturedCards, InivteAd } from "../../../components/Cards";
 
 export default function MainScreen() {
   const navigation = useNavigation();
@@ -41,7 +37,10 @@ export default function MainScreen() {
               <MainHeader />
               {/* Search and Filter */}
 
-              <SearchAndFilter />
+              <SearchAndFilter
+                iconColor={"white"}
+                placeholderTextColor={"white"}
+              />
             </View>
 
             {/* Event Categories */}
@@ -73,7 +72,7 @@ export default function MainScreen() {
                 <FlashList
                   data={featuredEvents}
                   renderItem={({ item }) => (
-                    <FeaturedUpcomingEvents
+                    <FeaturedCards
                       featuredImage={item.featuredImage}
                       name={item.name}
                       location={item.location}

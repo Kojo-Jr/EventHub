@@ -1,23 +1,35 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Pressable
+} from "react-native";
 import React from "react";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { useNavigation } from "@react-navigation/native";
 
-const SearchAndFilter = () => {
+const SearchAndFilter = ({ iconColor, placeholderTextColor }) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{ padding: wp(5), bottom: wp(5) }}
       className="flex-row items-center justify-between"
     >
-      <View>
-        <Ionicons name="search-outline" size={24} color="white" />
-      </View>
+      <Pressable
+        onPress={() => {
+          navigation.navigate("SearchScreen");
+        }}
+      >
+        <Ionicons name="search-outline" size={24} color={iconColor} />
+      </Pressable>
       <View style={{ right: wp(19) }}>
         <TextInput
           style={{ fontSize: wp(5), fontWeight: "300" }}
           className="text-white"
           placeholder="Search..."
-          placeholderTextColor={"white"}
+          placeholderTextColor={placeholderTextColor}
         />
       </View>
 

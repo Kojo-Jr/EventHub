@@ -1,5 +1,5 @@
 import EventsCard from "./EventsCard";
 import InivteAd from "./InivteAd";
-import FeaturedUpcomingEvents from "./FeaturedUpcomingEvents";
+import FeaturedCards from "./FeaturedCards";
 
-export { EventsCard, InivteAd, FeaturedUpcomingEvents };
+export { EventsCard, InivteAd, FeaturedCards };

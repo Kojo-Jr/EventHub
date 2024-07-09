@@ -4,7 +4,7 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { Feather, EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
+const FeaturedCards = ({ featuredImage, name, location }) => {
   const navigation = useNavigation();
 
   return (
@@ -101,4 +101,4 @@ const FeaturedUpcomingEvents = ({ featuredImage, name, location }) => {
   );
 };
 
-export default FeaturedUpcomingEvents;
+export default FeaturedCards;

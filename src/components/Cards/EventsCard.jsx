@@ -1,13 +1,24 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { EvilIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const EventsCard = ({ date, featuredImage, name, location }) => {
+  const navigation = useNavigation();
   return (
     <View style={Styles.eventsContainer}>
       <View className="items-center">
-        <View
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("ViewEventDetails", {
+              params: {
+                featuredImage,
+                name,
+                location
+              }
+            })
+          }
           style={Styles.eventsDetailsContainer}
           className="bg-white flex flex-row rounded-3xl "
         >
@@ -32,7 +43,7 @@ const EventsCard = ({ date, featuredImage, name, location }) => {
               <Text className="text-[#747688]">{location}</Text>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

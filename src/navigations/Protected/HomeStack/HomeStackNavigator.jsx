@@ -4,6 +4,7 @@ import MainScreen from "../../../screens/Home/Main/MainScreen";
 import NoNotification from "../../../screens/Home/Notification/NoNotification";
 import Notifications from "../../../screens/Home/Notification/Notifications";
 import ViewEventScreen from "../../../screens/Home/ViewEvent/ViewEventScreen";
+import Search from "../../../screens/Home/Search/Search";
 
 const HomeStack = createStackNavigator();
 
@@ -28,6 +29,11 @@ const HomeStackNavigator = () => {
       <HomeStack.Screen
         name="NoNotificationScreen"
         component={NoNotification}
+        options={{ headerShown: false }}
+      />
+      <HomeStack.Screen
+        name="SearchScreen"
+        component={Search}
         options={{ headerShown: false }}
       />
     </HomeStack.Navigator>

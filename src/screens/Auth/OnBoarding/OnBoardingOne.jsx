@@ -5,7 +5,6 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import MainHeader from "../../../components/Headers/MainHeader";
 import SearchAndFilter from "../../../components/TextInputs/SearchAndFilter";
 import SubHeader from "../../../components/Headers/SubHeader";
-import FeaturedUpcomingEvents from "../../../components/Cards/FeaturedUpcomingEvents";
 import MiniHeader from "../../../components/Headers/MiniHeader";
 const OnBoardingOne = () => {
   return (
