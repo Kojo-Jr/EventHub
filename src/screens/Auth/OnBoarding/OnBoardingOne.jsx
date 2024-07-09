@@ -33,7 +33,6 @@ const OnBoardingOne = () => {
       >
         <MiniHeader title="Upcoming Events" navigationText="See All" />
       </View>
-      <View></View>
     </View>
   );
 };
