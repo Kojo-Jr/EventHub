@@ -12,7 +12,7 @@ const ViewEventScreen = ({ route }) => {
   const { featuredImage, location, name } = route.params.params;
   //   const params = route.params;
   return (
-    <View className="flex-1=">
+    <View className="flex-1">
       <StatusBar style="auto" />
       {/* Banner */}
       <View className="bottom-6 self-center">
